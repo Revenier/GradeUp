@@ -7,22 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05B626B72D02AAFA00DE12CD /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626B62D02AAFA00DE12CD /* Main.swift */; };
+		05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BC2D02AC0700DE12CD /* Utility.swift */; };
+		05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BE2D02ACFA00DE12CD /* SignInView.swift */; };
+		05B626C12D02AD8600DE12CD /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C02D02AD8600DE12CD /* SignUpView.swift */; };
+		05B626C32D02ADC100DE12CD /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */; };
+		05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */; };
+		05B626C72D02B46500DE12CD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C62D02B46500DE12CD /* HomePageView.swift */; };
 		05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D728FF2CE839EB00025751 /* GradeUpApp.swift */; };
-		05D729022CE839EB00025751 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D729012CE839EB00025751 /* ContentView.swift */; };
-		05D729042CE839EB00025751 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D729032CE839EB00025751 /* Item.swift */; };
 		05D729062CE839F800025751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729052CE839F800025751 /* Assets.xcassets */; };
 		05D729092CE839F800025751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729082CE839F800025751 /* Preview Assets.xcassets */; };
-		05D729102CE83E9D00025751 /* Color+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D7290F2CE83E9D00025751 /* Color+hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05B626B62D02AAFA00DE12CD /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		05B626BC2D02AC0700DE12CD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = View/Utility.swift; sourceTree = "<group>"; };
+		05B626BE2D02ACFA00DE12CD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		05B626C02D02AD8600DE12CD /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
+		05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPrimary.swift; sourceTree = "<group>"; };
+		05B626C62D02B46500DE12CD /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		05D728FC2CE839EB00025751 /* GradeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D728FF2CE839EB00025751 /* GradeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeUpApp.swift; sourceTree = "<group>"; };
-		05D729012CE839EB00025751 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		05D729032CE839EB00025751 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		05D729052CE839F800025751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05D729082CE839F800025751 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		05D7290F2CE83E9D00025751 /* Color+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05B626B12D02AA5900DE12CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05B626BE2D02ACFA00DE12CD /* SignInView.swift */,
+				05B626C02D02AD8600DE12CD /* SignUpView.swift */,
+				05B626C62D02B46500DE12CD /* HomePageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05B626B22D02AA6E00DE12CD /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */,
+				05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		05B626B32D02AA7C00DE12CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		05D728F32CE839EB00025751 = {
 			isa = PBXGroup;
 			children = (
@@ -55,10 +89,12 @@
 		05D728FE2CE839EB00025751 /* GradeUp */ = {
 			isa = PBXGroup;
 			children = (
-				05D7290F2CE83E9D00025751 /* Color+hex.swift */,
+				05B626B32D02AA7C00DE12CD /* Model */,
+				05B626B22D02AA6E00DE12CD /* Component */,
+				05B626B12D02AA5900DE12CD /* View */,
 				05D728FF2CE839EB00025751 /* GradeUpApp.swift */,
-				05D729012CE839EB00025751 /* ContentView.swift */,
-				05D729032CE839EB00025751 /* Item.swift */,
+				05B626BC2D02AC0700DE12CD /* Utility.swift */,
+				05B626B62D02AAFA00DE12CD /* Main.swift */,
 				05D729052CE839F800025751 /* Assets.xcassets */,
 				05D729072CE839F800025751 /* Preview Content */,
 			);
@@ -143,9 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05D729022CE839EB00025751 /* ContentView.swift in Sources */,
-				05D729102CE83E9D00025751 /* Color+hex.swift in Sources */,
-				05D729042CE839EB00025751 /* Item.swift in Sources */,
+				05B626C32D02ADC100DE12CD /* ButtonPrimary.swift in Sources */,
+				05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */,
+				05B626C12D02AD8600DE12CD /* SignUpView.swift in Sources */,
+				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
+				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,
+				05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */,
+				05B626C72D02B46500DE12CD /* HomePageView.swift in Sources */,
 				05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
