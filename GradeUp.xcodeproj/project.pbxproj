@@ -14,6 +14,8 @@
 		05B626C32D02ADC100DE12CD /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */; };
 		05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */; };
 		05B626C72D02B46500DE12CD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C62D02B46500DE12CD /* HomePageView.swift */; };
+		05B6275A2D0437F300DE12CD /* CustomRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B627592D0437F300DE12CD /* CustomRoundedRectangle.swift */; };
+		05B6275C2D04380400DE12CD /* SubjectPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6275B2D04380400DE12CD /* SubjectPrimary.swift */; };
 		05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D728FF2CE839EB00025751 /* GradeUpApp.swift */; };
 		05D729062CE839F800025751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729052CE839F800025751 /* Assets.xcassets */; };
 		05D729092CE839F800025751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729082CE839F800025751 /* Preview Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPrimary.swift; sourceTree = "<group>"; };
 		05B626C62D02B46500DE12CD /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		05B627592D0437F300DE12CD /* CustomRoundedRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRoundedRectangle.swift; sourceTree = "<group>"; };
+		05B6275B2D04380400DE12CD /* SubjectPrimary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectPrimary.swift; sourceTree = "<group>"; };
 		05D728FC2CE839EB00025751 /* GradeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D728FF2CE839EB00025751 /* GradeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeUpApp.swift; sourceTree = "<group>"; };
 		05D729052CE839F800025751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */,
+				05B6275B2D04380400DE12CD /* SubjectPrimary.swift */,
 				05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */,
 			);
 			path = Component;
@@ -93,6 +98,7 @@
 				05B626B22D02AA6E00DE12CD /* Component */,
 				05B626B12D02AA5900DE12CD /* View */,
 				05D728FF2CE839EB00025751 /* GradeUpApp.swift */,
+				05B627592D0437F300DE12CD /* CustomRoundedRectangle.swift */,
 				05B626BC2D02AC0700DE12CD /* Utility.swift */,
 				05B626B62D02AAFA00DE12CD /* Main.swift */,
 				05D729052CE839F800025751 /* Assets.xcassets */,
@@ -184,7 +190,9 @@
 				05B626C12D02AD8600DE12CD /* SignUpView.swift in Sources */,
 				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
 				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,
+				05B6275C2D04380400DE12CD /* SubjectPrimary.swift in Sources */,
 				05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */,
+				05B6275A2D0437F300DE12CD /* CustomRoundedRectangle.swift in Sources */,
 				05B626C72D02B46500DE12CD /* HomePageView.swift in Sources */,
 				05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */,
 			);
