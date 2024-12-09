@@ -19,6 +19,7 @@
 		05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D728FF2CE839EB00025751 /* GradeUpApp.swift */; };
 		05D729062CE839F800025751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729052CE839F800025751 /* Assets.xcassets */; };
 		05D729092CE839F800025751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729082CE839F800025751 /* Preview Assets.xcassets */; };
+		05F8E01B2D06DEEF004C2500 /* DropDownPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F8E01A2D06DEEF004C2500 /* DropDownPrimary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		05D728FF2CE839EB00025751 /* GradeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeUpApp.swift; sourceTree = "<group>"; };
 		05D729052CE839F800025751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05D729082CE839F800025751 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		05F8E01A2D06DEEF004C2500 /* DropDownPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPrimary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				05B626C22D02ADC100DE12CD /* ButtonPrimary.swift */,
 				05B6275B2D04380400DE12CD /* SubjectPrimary.swift */,
 				05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */,
+				05F8E01A2D06DEEF004C2500 /* DropDownPrimary.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				05B626C32D02ADC100DE12CD /* ButtonPrimary.swift in Sources */,
 				05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */,
+				05F8E01B2D06DEEF004C2500 /* DropDownPrimary.swift in Sources */,
 				05B626C12D02AD8600DE12CD /* SignUpView.swift in Sources */,
 				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
 				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,

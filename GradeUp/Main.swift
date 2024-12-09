@@ -33,7 +33,7 @@ struct Main: View {
                         .pickerStyle(SegmentedPickerStyle())
                     
                     if isUserSignUp {
-                        SignUpView()
+                        SignUpView(isUserRegisComplete: $isUserSignUp)
                     }
                     else {
                         SignInView(isLoginSuccess: $isLoginSuccess)

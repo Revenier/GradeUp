@@ -20,6 +20,7 @@ struct SignInView: View {
         TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password")
         
         ButtonPrimary(title: "LOGIN", onClick: {
+            print(inputEmail)
             isLoginSuccess.toggle()
         })
             .padding(.top,37)
