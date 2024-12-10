@@ -14,6 +14,7 @@ struct DropDownPrimary: View {
     var anchor : Anchor = .bottom
     var maxWidth : CGFloat = CGFloat.infinity
     var cornerRadius : CGFloat = 10
+    @Binding var isEditable : Bool
     @Binding var selection : String?
     
     @State private var showOptions: Bool = false
@@ -25,9 +26,11 @@ struct DropDownPrimary: View {
             VStack(spacing: 0){
                 HStack(spacing: 0){
                     Text(selection ?? hint)
-                        .foregroundStyle(selection == nil ? .grey : .primary)
+                        .foregroundStyle(selection == nil ? Color(uiColor: UIColor(named: "Grey")!) : .primary)
+                        .opacity(0.7)
                         .font(.system(size: 15))
                         .lineLimit(1)
+                        .padding(.leading,-5)
                         
                     Spacer(minLength: 0)
                     
@@ -47,6 +50,7 @@ struct DropDownPrimary: View {
                         showOptions.toggle()
                     }
                 }
+                .disabled(!isEditable)
                 .zIndex(10)
                 
                 if showOptions {
@@ -92,7 +96,8 @@ struct DropDownPrimary: View {
                 }
             }
         }
-        .padding(.horizontal,15)
+        .padding(.leading,10)
+        .padding(.trailing,15)
         .padding(.vertical, 5)
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
         .transition(.move(edge: .top))

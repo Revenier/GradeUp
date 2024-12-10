@@ -10,9 +10,11 @@ import SwiftUI
 struct TextFieldPrimary: View {
     @Binding var textInput : String
     var placeholderText : String
+    @Binding var isEditable : Bool
     
     var body: some View {
         TextField(placeholderText, text: $textInput)
+            .disabled(!isEditable)
             .font(.system(size: 15))
             .padding(10)
             .background(.white)
@@ -24,5 +26,5 @@ struct TextFieldPrimary: View {
 
 
 #Preview {
-    TextFieldPrimary(textInput: .constant(""), placeholderText: "Test")
+    TextFieldPrimary(textInput: .constant(""), placeholderText: "Test", isEditable: .constant(false))
 }

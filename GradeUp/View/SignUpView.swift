@@ -16,13 +16,13 @@ struct SignUpView: View {
     @Binding var isUserRegisComplete : Bool
     
     var body: some View {
-        TextFieldPrimary(textInput: $inputName, placeholderText: "Name")
+        TextFieldPrimary(textInput: $inputName, placeholderText: "Name", isEditable: .constant(true))
             .padding(.top,37)
-        DropDownPrimary(hint: "Grade", options: ["Primary 1", "Primary 2", "Primary 3", "Primary 4", "Primary 5", "Primary 6"], selection: $inputGrade)
+        DropDownPrimary(hint: "Grade", options: ["Primary 1", "Primary 2", "Primary 3", "Primary 4", "Primary 5", "Primary 6"], isEditable: .constant(true), selection: $inputGrade)
             .padding(.top,28)
-        TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email")
+        TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email", isEditable: .constant(true))
             .padding(.top,28)
-        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password")
+        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password", isEditable: .constant(true))
             .padding(.top,28)
         ButtonPrimary(title: "REGISTER", onClick: {
             

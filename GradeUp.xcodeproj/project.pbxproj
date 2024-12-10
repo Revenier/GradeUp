@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		059448C32D0804A400E11B77 /* ProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059448C22D0804A400E11B77 /* ProfilePageView.swift */; };
 		059448C52D0813AF00E11B77 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059448C42D0813AF00E11B77 /* ButtonSecondary.swift */; };
+		059448C72D0848EB00E11B77 /* HeaderPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059448C62D0848EB00E11B77 /* HeaderPrimary.swift */; };
 		05B626B72D02AAFA00DE12CD /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626B62D02AAFA00DE12CD /* Main.swift */; };
 		05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BC2D02AC0700DE12CD /* Utility.swift */; };
 		05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BE2D02ACFA00DE12CD /* SignInView.swift */; };
@@ -18,7 +19,6 @@
 		05B626C72D02B46500DE12CD /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626C62D02B46500DE12CD /* HomePageView.swift */; };
 		05B6275C2D04380400DE12CD /* SubjectPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B6275B2D04380400DE12CD /* SubjectPrimary.swift */; };
 		05B64F0E2D0814C900CBB047 /* StartButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F0D2D0814C900CBB047 /* StartButtonPrimary.swift */; };
-		05B64F862D0816E500CBB047 /* Inter-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05B64F852D0816E500CBB047 /* Inter-VariableFont_opsz,wght.ttf */; };
 		05B64F8A2D081E8E00CBB047 /* NumberButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F892D081E8E00CBB047 /* NumberButtonPrimary.swift */; };
 		05B64F8C2D0822D100CBB047 /* AnswerButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F8B2D0822D100CBB047 /* AnswerButtonPrimary.swift */; };
 		05B64F8E2D082C4100CBB047 /* LessonLayoutPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F8D2D082C4100CBB047 /* LessonLayoutPrimary.swift */; };
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		059448C22D0804A400E11B77 /* ProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageView.swift; sourceTree = "<group>"; };
 		059448C42D0813AF00E11B77 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
+		059448C62D0848EB00E11B77 /* HeaderPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderPrimary.swift; sourceTree = "<group>"; };
 		05B626B62D02AAFA00DE12CD /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		05B626BC2D02AC0700DE12CD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = View/Utility.swift; sourceTree = "<group>"; };
 		05B626BE2D02ACFA00DE12CD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 				05B64F0D2D0814C900CBB047 /* StartButtonPrimary.swift */,
 				05B64F892D081E8E00CBB047 /* NumberButtonPrimary.swift */,
 				059448C42D0813AF00E11B77 /* ButtonSecondary.swift */,
+				059448C62D0848EB00E11B77 /* HeaderPrimary.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -197,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05D729092CE839F800025751 /* Preview Assets.xcassets in Resources */,
-				05B64F862D0816E500CBB047 /* Inter-VariableFont_opsz,wght.ttf in Resources */,
 				05D729062CE839F800025751 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +220,7 @@
 				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
 				05B64F0E2D0814C900CBB047 /* StartButtonPrimary.swift in Sources */,
 				05B64F8C2D0822D100CBB047 /* AnswerButtonPrimary.swift in Sources */,
+				059448C72D0848EB00E11B77 /* HeaderPrimary.swift in Sources */,
 				05B64F8E2D082C4100CBB047 /* LessonLayoutPrimary.swift in Sources */,
 				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,
 				05B6275C2D04380400DE12CD /* SubjectPrimary.swift in Sources */,

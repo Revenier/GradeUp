@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct SignInView: View {
-    @Binding var isLoginSuccess : Bool
     
     @State var inputEmail : String = ""
     @State var inputPassword : String = ""
+    
+    @Binding var navigationPath : NavigationPath
     var body: some View {
-        TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email")
+        TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email", isEditable: .constant(true))
             .padding(.bottom,29)
             .padding(.top,37)
         
-        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password")
+        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password", isEditable: .constant(true))
         
         ButtonPrimary(title: "LOGIN", onClick: {
             print(inputEmail)
-            isLoginSuccess.toggle()
+            navigationPath.append("Home")
         })
             .padding(.top,37)
     }

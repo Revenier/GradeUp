@@ -9,40 +9,37 @@ import SwiftUI
 
 struct HomePageView: View {
     
-    @State private var isUserOnGoingJourney = false;
+    @State private var isUserOnGoingJourney = true;
+    @Binding var navigationPath : NavigationPath
     
     var body: some View {
-        NavigationView{
-            ZStack {
-                Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
-                VStack(spacing : 0 ) {
-                    
-                    homeHeader()
-                    
-                    userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
-                    
-                    Text("Categories")
-                        .font(.system(size: 16))
-                        .padding(.top,35)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Spacer()
-                }
-                .frame(width: .infinity)
-                .padding(.horizontal, 37)
+        ZStack {
+            Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
+            VStack(spacing : 0 ) {
+                
+                homeHeader(navigationPath: $navigationPath)
+                
+                userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
+                
+                Text("Categories")
+                    .font(.system(size: 16))
+                    .padding(.top,35)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Spacer()
             }
-            
+            .padding(.horizontal, 37)
         }
-        
+
     }
 }
 
 #Preview {
-    HomePageView()
+    HomePageView(navigationPath: .constant(NavigationPath()))
 }
 
 struct homeHeader : View {
-    @State private var isProfile = false
+    @Binding var navigationPath : NavigationPath
     
     var body : some View {
         HStack {
@@ -60,7 +57,8 @@ struct homeHeader : View {
             .frame(maxWidth: .infinity, maxHeight: 48, alignment: .leading)
             
             Button(action: {
-                isProfile.toggle()
+                navigationPath.append("Profile")
+                
             }) {
                 Image(systemName: "person.crop.circle.fill")
                     .resizable()
@@ -72,11 +70,10 @@ struct homeHeader : View {
             }.frame(maxWidth: .infinity, alignment: .trailing)
             
             
-            NavigationLink(destination: ProfilePageView().navigationBarBackButtonHidden(true), isActive: $isProfile){
-                EmptyView()
-            }
+       
         }
     }
+ 
 }
 
 struct userLastJourney : View {
@@ -91,6 +88,9 @@ struct userLastJourney : View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 20)
                     .padding(.horizontal, 15)
+                
+                
+                
                 HStack(spacing : 35){
                     Image("PlaceholderSubject")
                         .resizable()
@@ -101,7 +101,6 @@ struct userLastJourney : View {
                             RoundedRectangle(cornerRadius: 13)
                                 .fill(Color(uiColor: UIColor(named: "LightGrey")!)).frame(width: 85 , height: 85)
                         )
-                    
                     
                     VStack(spacing: 10){
                         Text("Physics - Nuclear Fusion")

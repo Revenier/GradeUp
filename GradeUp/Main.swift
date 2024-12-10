@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Main: View {
     @State var isUserSignUp : Bool = false
-    @State var isLoginSuccess : Bool = false
+
+    @State var navigationPath = NavigationPath()
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $navigationPath) {
             ZStack{
                 Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
                 CircleBackground(isRegister: $isUserSignUp)
@@ -25,27 +26,36 @@ struct Main: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 164, height: 164)
                         .padding(.vertical,32)
-                       
+                    
                     Picker(selection: $isUserSignUp, label: Text("Picker")) {
                         Text("SIGN IN").tag(false)
                         Text("SIGN UP").tag(true)
                     }
-                        .pickerStyle(SegmentedPickerStyle())
+                    .pickerStyle(SegmentedPickerStyle())
                     
                     if isUserSignUp {
                         SignUpView(isUserRegisComplete: $isUserSignUp)
                     }
                     else {
-                        SignInView(isLoginSuccess: $isLoginSuccess)
+                        SignInView(navigationPath: $navigationPath)
                     }
-                    
-                    NavigationLink(destination: HomePageView().navigationBarBackButtonHidden(true), isActive: $isLoginSuccess){
-                        EmptyView()
-                    }
+                
+//                    NavigationLink(destination: HomePageView(navigationPath: $navigationPath).navigationBarBackButtonHidden(true), isActive: $isLoginSuccess){
+//                        EmptyView()
+//                    }
+                  
                     
                     Spacer()
-                 
+                    
                 }.padding(.horizontal,46)
+                    .navigationDestination(for: String.self) { value in
+                        if (value == "Home"){
+                            HomePageView(navigationPath: $navigationPath).navigationBarBackButtonHidden(true)
+                        }
+                        else if (value == "Profile"){
+                            ProfilePageView(navigationPath: $navigationPath).navigationBarBackButtonHidden(true)
+                        }
+                    }
                 
             }
         }
@@ -58,7 +68,7 @@ struct CircleBackground: View {
         ForEach(0..<3){index in
             Circle()
                 .fill(RadialGradient(gradient: Gradient(colors: [Color(UIColor(named: isRegister ? "PinkPastel" : "BluePastel")!)
-                .opacity(0.25),Color(hex: "73B7EF").opacity(0)]), center: .center, startRadius: 25, endRadius: 100))
+                    .opacity(0.25),Color(hex: "73B7EF").opacity(0)]), center: .center, startRadius: 25, endRadius: 100))
                 .frame(width: 400,height: 400)
                 .position(x: CGFloat.random(in: 0...400), y: CGFloat.random(in: 0...800))
         }
