@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		059448C32D0804A400E11B77 /* ProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059448C22D0804A400E11B77 /* ProfilePageView.swift */; };
+		059448C52D0813AF00E11B77 /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059448C42D0813AF00E11B77 /* ButtonSecondary.swift */; };
 		05B626B72D02AAFA00DE12CD /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626B62D02AAFA00DE12CD /* Main.swift */; };
 		05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BC2D02AC0700DE12CD /* Utility.swift */; };
 		05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B626BE2D02ACFA00DE12CD /* SignInView.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		059448C22D0804A400E11B77 /* ProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageView.swift; sourceTree = "<group>"; };
+		059448C42D0813AF00E11B77 /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		05B626B62D02AAFA00DE12CD /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		05B626BC2D02AC0700DE12CD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = View/Utility.swift; sourceTree = "<group>"; };
 		05B626BE2D02ACFA00DE12CD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 				05B626BE2D02ACFA00DE12CD /* SignInView.swift */,
 				05B626C02D02AD8600DE12CD /* SignUpView.swift */,
 				05B626C62D02B46500DE12CD /* HomePageView.swift */,
+				059448C22D0804A400E11B77 /* ProfilePageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -67,6 +72,7 @@
 				05B6275B2D04380400DE12CD /* SubjectPrimary.swift */,
 				05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */,
 				05F8E01A2D06DEEF004C2500 /* DropDownPrimary.swift */,
+				059448C42D0813AF00E11B77 /* ButtonSecondary.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -189,8 +195,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B626C32D02ADC100DE12CD /* ButtonPrimary.swift in Sources */,
+				059448C32D0804A400E11B77 /* ProfilePageView.swift in Sources */,
 				05B626BD2D02AC0700DE12CD /* Utility.swift in Sources */,
 				05F8E01B2D06DEEF004C2500 /* DropDownPrimary.swift in Sources */,
+				059448C52D0813AF00E11B77 /* ButtonSecondary.swift in Sources */,
 				05B626C12D02AD8600DE12CD /* SignUpView.swift in Sources */,
 				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
 				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,

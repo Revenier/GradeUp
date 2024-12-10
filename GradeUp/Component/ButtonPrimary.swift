@@ -19,7 +19,7 @@ struct ButtonPrimary : View {
                 .font(.system(size: 20,weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 150, height: 44)
-                .background(Color.init(hex: "50575C"))
+                .background(Color(uiColor: UIColor(named: "SecondaryTextColor")!))
                 .cornerRadius(10)
         }
     }
