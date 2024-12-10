@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Subject{
+    var name : String
+    var chapters: [Chapter]
+}

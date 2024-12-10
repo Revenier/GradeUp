@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Grade{
+    var name : String
+    var subjects : [Subject]
+}

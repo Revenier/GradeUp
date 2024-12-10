@@ -29,7 +29,7 @@ struct LessonLayoutPrimary : View {
                 }
                 .padding(.trailing, 20)
                 
-                StartButtonPrimary(onClick: {print("hello")}).scaledToFit().frame(width: 96).padding(5)
+                StartLessonButtonPrimary(onClick: {print("hello")}).scaledToFit().frame(width: 96).padding(5)
                     .padding(.trailing, 20)
             }
             

@@ -16,7 +16,7 @@ struct StartButtonPrimary : View {
             onClick()
         } label : {
             Text("Start Lesson")
-                .font(.system(size: 8))
+                .font(.system(size: 6))
                 .foregroundStyle(.primaryText)
                 .frame(width: 56, height: 16)
                 .background(Color.background)

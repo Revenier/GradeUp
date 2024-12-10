@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Chapter{
+    var name: String
+    var questions: [Question]
+}
