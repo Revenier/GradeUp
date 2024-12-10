@@ -21,6 +21,7 @@
 		05B64F862D0816E500CBB047 /* Inter-VariableFont_opsz,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05B64F852D0816E500CBB047 /* Inter-VariableFont_opsz,wght.ttf */; };
 		05B64F8A2D081E8E00CBB047 /* NumberButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F892D081E8E00CBB047 /* NumberButtonPrimary.swift */; };
 		05B64F8C2D0822D100CBB047 /* AnswerButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F8B2D0822D100CBB047 /* AnswerButtonPrimary.swift */; };
+		05B64F8E2D082C4100CBB047 /* LessonLayoutPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B64F8D2D082C4100CBB047 /* LessonLayoutPrimary.swift */; };
 		05D729002CE839EB00025751 /* GradeUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D728FF2CE839EB00025751 /* GradeUpApp.swift */; };
 		05D729062CE839F800025751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729052CE839F800025751 /* Assets.xcassets */; };
 		05D729092CE839F800025751 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D729082CE839F800025751 /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		05B64F872D08170700CBB047 /* Inter-VariableFont_opsz,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-VariableFont_opsz,wght.ttf"; path = "../../../Inter/Inter-VariableFont_opsz,wght.ttf"; sourceTree = "<group>"; };
 		05B64F892D081E8E00CBB047 /* NumberButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButtonPrimary.swift; sourceTree = "<group>"; };
 		05B64F8B2D0822D100CBB047 /* AnswerButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtonPrimary.swift; sourceTree = "<group>"; };
+		05B64F8D2D082C4100CBB047 /* LessonLayoutPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonLayoutPrimary.swift; sourceTree = "<group>"; };
 		05D728FC2CE839EB00025751 /* GradeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05D728FF2CE839EB00025751 /* GradeUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeUpApp.swift; sourceTree = "<group>"; };
 		05D729052CE839F800025751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				05B626C42D02AE0700DE12CD /* TextFieldPrimary.swift */,
 				05B64F8B2D0822D100CBB047 /* AnswerButtonPrimary.swift */,
 				05F8E01A2D06DEEF004C2500 /* DropDownPrimary.swift */,
+				05B64F8D2D082C4100CBB047 /* LessonLayoutPrimary.swift */,
 				05B64F0D2D0814C900CBB047 /* StartButtonPrimary.swift */,
 				05B64F892D081E8E00CBB047 /* NumberButtonPrimary.swift */,
 				059448C42D0813AF00E11B77 /* ButtonSecondary.swift */,
@@ -216,6 +219,7 @@
 				05B626B72D02AAFA00DE12CD /* Main.swift in Sources */,
 				05B64F0E2D0814C900CBB047 /* StartButtonPrimary.swift in Sources */,
 				05B64F8C2D0822D100CBB047 /* AnswerButtonPrimary.swift in Sources */,
+				05B64F8E2D082C4100CBB047 /* LessonLayoutPrimary.swift in Sources */,
 				05B626C52D02AE0700DE12CD /* TextFieldPrimary.swift in Sources */,
 				05B6275C2D04380400DE12CD /* SubjectPrimary.swift in Sources */,
 				05B626BF2D02ACFA00DE12CD /* SignInView.swift in Sources */,

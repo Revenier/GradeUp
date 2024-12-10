@@ -20,7 +20,7 @@ struct AnswerButtonPrimary : View {
                 .foregroundStyle(.primaryText)
                 .frame(width: 346, alignment: .leading)
                 .padding(10)
-                .background(.white)
+                .background(.containerPrimary)
                 .cornerRadius(5)
                 .shadow(color: .black.opacity(0.25),radius: 4,x: 0, y: 4)
                 .scaledToFit()

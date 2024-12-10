@@ -19,7 +19,7 @@ struct NumberButtonPrimary : View {
                 .font(.system(size: 16))
                 .foregroundStyle(.primaryText)
                 .frame(width: 39, height: 39).scaledToFill()
-                .background(.white)
+                .background(.containerPrimary)
                 .cornerRadius(5)
                 .shadow(color: .black.opacity(0.25),radius: 4,x: 0, y: 4)
                 .scaledToFit()

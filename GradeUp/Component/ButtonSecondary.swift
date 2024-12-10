@@ -34,7 +34,7 @@ struct ButtonSecondary: View {
                     .foregroundStyle(.white)
                 
                 if (iconPos == .right){
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "arrow.right")
                         .foregroundColor(.white)
                         .font(.system(size: titleSize+2, weight: .bold))
                 }
