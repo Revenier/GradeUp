@@ -41,9 +41,9 @@ struct ButtonSecondary: View {
                     
             }
             .frame(width: width, height: height)
-            .background(Color(uiColor: UIColor(named: isEnabled ? "LightBlue" : "SecondaryTextColor")!))
+            .background(LinearGradient(gradient: isEnabled ? Gradient(colors: [Color.lightBlue, Color.darkBlue]) : Gradient(colors: [Color.gray, Color.gray]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(5)
-            .shadow(color: .lightGrey, radius: 4, x: 1, y: 4)
+            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
             
         }
     }
