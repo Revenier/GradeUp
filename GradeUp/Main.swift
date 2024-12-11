@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 struct Main: View {
+    
+    init(){
+        FirebaseApp.configure()
+        print("Configured FIrebase!")
+    }
+    
     @State var isUserSignUp : Bool = false
 
     @State var navigationPath = NavigationPath()
