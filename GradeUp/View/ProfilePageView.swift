@@ -12,10 +12,10 @@ struct ProfilePageView: View {
     
     @Binding var navigationPath : NavigationPath
     @State var isUpdateProfile : Bool = false
-    @State var TFName : String = "Halo"
-    @State var TFEmail : String = "WWW"
-    @State var TFGrade : String? = "Primary 1"
-    @State var TFDate : String = "halo"
+    @State var TFName : String = ""
+    @State var TFEmail : String = ""
+    @State var TFGrade : String?
+    @State var TFDate : String = ""
     
     @State private var photosPickerItem : PhotosPickerItem?
     @State private var avatar : UIImage?
@@ -34,11 +34,11 @@ struct ProfilePageView: View {
                         if let img = avatar {
                             Image(uiImage: img)
                                 .resizable()
-                                .scaledToFit()
+                                .scaledToFill()
                                 .frame(width: 190, height: 190)
                                 .clipShape(Circle())
-                                    .overlay(Circle().stroke(Color.gray, lineWidth: 5))
-                                .aspectRatio(contentMode: .fit)
+                                    .overlay(Circle().stroke(Color.gray, lineWidth: 7))
+                                    .aspectRatio(contentMode: .fit)
                                 .foregroundColor(.gray)
                                 .padding(.top, 30)
                         }else {
