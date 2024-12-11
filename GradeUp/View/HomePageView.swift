@@ -12,6 +12,7 @@ struct HomePageView: View {
     @State private var isUserOnGoingJourney = true;
     @Binding var navigationPath : NavigationPath
     
+    
     var body: some View {
         ZStack {
             Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
@@ -40,6 +41,7 @@ struct HomePageView: View {
 
 struct homeHeader : View {
     @Binding var navigationPath : NavigationPath
+    @State var avatar : UIImage? = UIImage()
     
     var body : some View {
         HStack {
@@ -60,13 +62,25 @@ struct homeHeader : View {
                 navigationPath.append("Profile")
                 
             }) {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 57, height: 57)
-                    .foregroundColor(.gray)
-                    .padding(.vertical,32)
+                if let img = avatar {
+                    Image(uiImage: img)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 57, height: 57)
+                        .clipShape(Circle())
+                        .foregroundColor(.gray)
+                        .padding(.vertical,32)
+                }
+                else {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 57, height: 57)
+                        .foregroundColor(.gray)
+                        .padding(.vertical,32)
+                }
+                
             }.frame(maxWidth: .infinity, alignment: .trailing)
             
             
@@ -92,7 +106,7 @@ struct userLastJourney : View {
                 
                 
                 HStack(spacing : 35){
-                    Image("PlaceholderSubject")
+                    Image("placeHolderSubject")
                         .resizable()
                         .scaledToFit()
                         .aspectRatio(contentMode: .fit)
