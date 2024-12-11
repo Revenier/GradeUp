@@ -22,12 +22,14 @@ struct HomePageView: View {
                 
                 userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
                 
-                subjectGridView(navigationPath: $navigationPath)
-                
                 Text("Categories")
                     .font(.system(size: 16))
                     .padding(.top,35)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                subjectGridView(navigationPath: $navigationPath)
+                
+                
                 
                 Spacer()
             }
