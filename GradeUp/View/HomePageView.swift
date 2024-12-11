@@ -22,14 +22,12 @@ struct HomePageView: View {
                 
                 userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
                 
-                
+                subjectGridView(navigationPath: $navigationPath)
                 
                 Text("Categories")
                     .font(.system(size: 16))
                     .padding(.top,35)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
-                subjectGridView()
                 
                 Spacer()
             }
@@ -172,6 +170,7 @@ struct userLastJourney : View {
 }
 
 struct subjectGridView : View{
+    @Binding var navigationPath : NavigationPath
     //3 items per column
     let columns: [GridItem] = [
             GridItem(.flexible()),
@@ -185,9 +184,7 @@ struct subjectGridView : View{
         ScrollView{
             LazyVGrid(columns: columns, spacing: 20){
                 ForEach(items, id: \.self){ subject in
-                    VStack{
-                        SubjectPrimary(backgroundColor: subjectColor[subject-1 % colorCount], subjectTitle: subjectsTemp[subject-1].name, subjectLogo: Image(subjectsTemp[subject-1].name))
-                    }
+                    SubjectPrimary(backgroundColor: subjectColor[subject-1 % colorCount], subjectTitle: subjectsTemp[subject-1].name, subjectLogo: Image(subjectsTemp[subject-1].name), subjectIndex:"\(subject-1)" ,navigationPath: $navigationPath)
                 }
             }
         }

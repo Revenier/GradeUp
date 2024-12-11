@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct LessonLayoutPrimary : View {
+    @Binding var navigationPath: NavigationPath
     var backgroundColor : Color
     var lessonTitle : String
     var questionCount: Int
     var subjectLogo : Image!
+    var chapterIndex : Int
+    var subjectIndex : Int
     @Binding var isCompleted : Bool
     var body : some View {
         ZStack(alignment: .leading){
@@ -29,7 +32,7 @@ struct LessonLayoutPrimary : View {
                 }
                 .padding(.trailing, 20)
                 
-                StartLessonButtonPrimary(onClick: {print("hello")}).scaledToFit().frame(width: 96).padding(5)
+                StartLessonButtonPrimary(onClick: {navigationPath.append("Chapter \(subjectIndex) \(chapterIndex)")}).scaledToFit().frame(width: 96).padding(5)
                     .padding(.trailing, 20)
             }
             
@@ -39,5 +42,5 @@ struct LessonLayoutPrimary : View {
 }
 
 #Preview {
-    LessonLayoutPrimary(backgroundColor: Color.bluePastel, lessonTitle: "Nuclear Fussion", questionCount: 5, subjectLogo: Image("Physics"),isCompleted: .constant(true))
+    LessonLayoutPrimary(navigationPath: .constant(NavigationPath()), backgroundColor: Color.bluePastel, lessonTitle: "Nuclear Fussion", questionCount: 5, subjectLogo: Image("Physics"), chapterIndex: 0,subjectIndex: 0,isCompleted: .constant(true))
 }
