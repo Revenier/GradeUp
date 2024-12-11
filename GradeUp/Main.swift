@@ -101,6 +101,19 @@ struct Main: View {
                         else if (value == "Profile"){
                             ProfilePageView(navigationPath: $navigationPath).navigationBarBackButtonHidden(true)
                         }
+                        else if (value.hasPrefix("Subject")){
+                            let valueArr = value.split(separator : " ")
+                            let index = Int(valueArr.last!)
+                            SubjectPageView(navigationPath:
+                                                $navigationPath, subjectIndex: index!).navigationBarBackButtonHidden(true)
+                        }
+                        else if (value.hasPrefix("Chapter")){
+                            let valueArr = value.split(separator : " ")
+                            let subjectIndex = Int(valueArr[1])
+                            let chapterIndex = Int(valueArr.last!)
+                            QuestionPageView(navigationPath:
+                                                $navigationPath, chapterSelected: .constant(subjectsTemp[subjectIndex!].chapters[chapterIndex!])).navigationBarBackButtonHidden(true)
+                        }
                     }
                 
             }

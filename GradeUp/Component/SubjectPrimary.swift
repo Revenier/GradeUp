@@ -11,7 +11,8 @@ struct SubjectPrimary : View {
     var backgroundColor : Color
     var subjectTitle : String
     var subjectLogo : Image!
-    
+    var subjectIndex: String
+    @Binding var navigationPath : NavigationPath
     var body : some View {
         ZStack{
             Rectangle().fill(backgroundColor).frame(width: 96, height: 126)
@@ -23,7 +24,7 @@ struct SubjectPrimary : View {
             VStack{
                 subjectLogo.resizable().scaledToFit().frame(width: 46,height: 46).padding(7)
                 Text(subjectTitle).font(.system(size: 10,weight: .bold)).padding(.bottom,1)
-                StartButtonPrimary(onClick: {print("hello")}).scaledToFit().frame(width: 96).padding(5)
+                StartButtonPrimary(onClick: {navigationPath.append("Subject \(subjectIndex)")}).scaledToFit().frame(width: 96).padding(5)
             }
 
         }
@@ -31,5 +32,5 @@ struct SubjectPrimary : View {
 }
 
 #Preview {
-    SubjectPrimary(backgroundColor: Color.bluePastel, subjectTitle: "Physics", subjectLogo: Image("Physics"))
+    SubjectPrimary(backgroundColor: Color.bluePastel, subjectTitle: "Physics", subjectLogo: Image("Physics"), subjectIndex: "0",navigationPath: .constant(NavigationPath()))
 }

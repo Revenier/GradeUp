@@ -9,30 +9,30 @@ import SwiftUI
 
 
 struct SubjectPageView: View {
+    @Binding var navigationPath: NavigationPath
+    var subjectIndex: Int
     var body: some View {
         NavigationView{
             ZStack(alignment:.top) {
                 Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
+                
                 VStack() {
-                    
-                    Text(subjectsTemp[0].name)
-                        .font(.system(size: 18,weight: .bold))
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding()
+                    HeaderPrimary(title: subjectsTemp[subjectIndex].name, onBackBtnClick: {navigationPath.removeLast(1)}, offSet: -5)
+       
                     
                     ScrollView{
                         VStack(spacing: 20){
-                            ForEach(0..<subjectsTemp[0].chapters.count){index in
-                                LessonLayoutPrimary(backgroundColor: chapterColor[index%5], lessonTitle: subjectsTemp[0].chapters[index].name, questionCount: subjectsTemp[0].chapters[index].questions.count, subjectLogo: Image(subjectsTemp[0].name), isCompleted: .constant(true))
+                            ForEach(0..<subjectsTemp[subjectIndex].chapters.count){index in
+                                LessonLayoutPrimary(navigationPath: $navigationPath, backgroundColor: chapterColor[index%5], lessonTitle: subjectsTemp[subjectIndex].chapters[index].name, questionCount: subjectsTemp[subjectIndex].chapters[index].questions.count, subjectLogo: Image(subjectsTemp[subjectIndex].name), chapterIndex: index, subjectIndex: subjectIndex, isCompleted: .constant(true))
                             }
                         }
-                    }
+                    }.padding(.bottom, 50)
                     
                     
                 }
                 
                 .frame(width: .infinity)
-                .padding(37)
+                .padding(.horizontal,37)
             }
             
         }
@@ -40,5 +40,5 @@ struct SubjectPageView: View {
 }
 
 #Preview {
-    SubjectPageView()
+    SubjectPageView(navigationPath: .constant(NavigationPath()),subjectIndex: 1)
 }
