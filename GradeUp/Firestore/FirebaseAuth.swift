@@ -14,7 +14,7 @@ func registerUserInAuth(email: String, password: String, completion: @escaping (
         if let error = error {
             completion(.failure(error))
         } else if let authResult = authResult {
-            let user = User(name: "", grade: "", email: email, password: password)
+            let user = User(name: "", grade: "", email: email, password: password, DOB: "")
             completion(.success(user))
         }
     }
@@ -32,9 +32,11 @@ func storeUserToFirebase(user: User, completion: @escaping (Result<Void, Error>)
     // User data dictionary
     let userData: [String: Any] = [
         "name": user.name,
-        "grade": user.grade ?? "",  // Provide default value if grade is nil
+        "grade": user.grade ?? "",  
         "email": user.email,
-        "password": user.password
+        "password": user.password,
+        "DOB": "",
+        "ProfilePic":""
     ]
     
     // Save user data to Firestore using the user's UID as document ID
@@ -47,7 +49,8 @@ func storeUserToFirebase(user: User, completion: @escaping (Result<Void, Error>)
     }
 }
 
-func getUserFromFirebase(email: String, completion: @escaping (Result<User, Error>) -> Void) {
+// buat di sign up, cek udh ada akun blm
+func findUserFromFirebase(email: String, completion: @escaping (Result<User, Error>) -> Void) {
     let db = Firestore.firestore()
     
     db.collection("users")
@@ -61,8 +64,10 @@ func getUserFromFirebase(email: String, completion: @escaping (Result<User, Erro
                     if let name = data["name"] as? String,
                        let grade = data["grade"] as? String,
                        let email = data["email"] as? String,
-                       let password = data["password"] as? String {
-                        let user = User(name: name, grade: grade, email: email, password: password)
+                       let password = data["password"] as? String,
+                       let dob = data["DOB"] as? String
+                    {
+                        let user = User(name: name, grade: grade, email: email, password: password, DOB: dob)
                         completion(.success(user))
                     } else {
                         completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing user data"])))
@@ -76,7 +81,82 @@ func getUserFromFirebase(email: String, completion: @escaping (Result<User, Erro
         }
 }
 
+// buat login doang hehehe
+func signInUser(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(()))
+        }
+    }
+}
 
+// dapetin data-data user
+func searchUserByEmail(email: String, completion: @escaping (Result<User?, Error>) -> Void) {
+    let db = Firestore.firestore()
 
+    db.collection("users")
+        .whereField("email", isEqualTo: email)
+        .limit(to: 1)
+        .getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
 
+            guard let document = querySnapshot?.documents.first else {
+                completion(.success(nil)) // No user found
+                return
+            }
 
+            let data = document.data()
+            guard let name = data["name"] as? String,
+                  let grade = data["grade"] as? String,
+                  let email = data["email"] as? String,
+                  let password = data["password"] as? String,
+                  let dob = data["DOB"] as? String
+            else {
+                      completion(.failure(NSError(
+                        domain: "",
+                        code: -1,
+                        userInfo: [NSLocalizedDescriptionKey: "Data parsing error"]
+                      )))
+                      return
+                  }
+
+            let user = User(name: name, grade: grade, email: email, password: password, DOB: dob)
+            completion(.success(user))
+        }
+}
+
+// Update data akun user
+func updateUserProfile(user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+    let db = Firestore.firestore()
+    
+    db.collection("users")
+        .whereField("email", isEqualTo: user.email)
+        .getDocuments { querySnapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let document = querySnapshot?.documents.first else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not found"])))
+                return
+            }
+
+            document.reference.updateData([
+                "name": user.name,
+                "grade": user.grade,
+                "DOB": user.DOB
+            ]) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
+}

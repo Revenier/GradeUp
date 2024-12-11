@@ -12,4 +12,5 @@ struct User{
     var grade: String
     var email: String
     var password: String
+    var DOB: String
 }

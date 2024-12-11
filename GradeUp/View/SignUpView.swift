@@ -72,7 +72,7 @@ struct SignUpView: View {
         }
 
         // cek usernya udh ada belom
-        getUserFromFirebase(email: inputEmail) { result in
+        findUserFromFirebase(email: inputEmail) { result in
             switch result {
             case .success:
                 errorMessage = "This email is already registered."
@@ -89,7 +89,7 @@ struct SignUpView: View {
                         return
                     }
                     
-                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword)
+                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword, DOB: "")
                     
                     storeUserToFirebase(user: user) { result in
                         switch result {

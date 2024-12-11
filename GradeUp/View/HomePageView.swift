@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomePageView: View {
     
+    
+    
     @State private var isUserOnGoingJourney = true;
     @Binding var navigationPath : NavigationPath
     
@@ -44,16 +46,39 @@ struct HomePageView: View {
 }
 
 struct homeHeader : View {
+
+    @State private var userData: User? = nil
+        
+        var userEmail: String {
+            UserDefaults.standard.string(forKey: "userEmail") ?? ""
+        }
+        
+        func fetchUserData() {
+            searchUserByEmail(email: userEmail) { result in
+                switch result {
+                case .success(let user):
+                    if let user = user {
+                        self.userData = user
+                        print("User data updated: \(user.name)")
+                    } else {
+                        print("No user found with the email \(userEmail)")
+                    }
+                case .failure(let error):
+                    print("Error occurred: \(error.localizedDescription)")
+                }
+            }
+        }
+    
+    
     @Binding var navigationPath : NavigationPath
     @State var avatar : UIImage?
     
     var body : some View {
         HStack {
             VStack(spacing: 0) {
-                Text("Hi, Sarah")
+                Text("Hi, \(userData?.name ?? "")")
                     .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                
                 Spacer()
                 
                 Text("Let's Start Learning")
@@ -86,9 +111,10 @@ struct homeHeader : View {
                 }
                 
             }.frame(maxWidth: .infinity, alignment: .trailing)
-            
-            
-       
+        }
+        
+        .onAppear {
+            fetchUserData()
         }
     }
  

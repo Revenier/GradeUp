@@ -10,6 +10,8 @@ import PhotosUI
 
 struct ProfilePageView: View {
     
+    @State private var userData: User? = nil
+    
     @Binding var navigationPath : NavigationPath
     @State var isUpdateProfile : Bool = false
     @State var TFName : String = ""
@@ -23,6 +25,31 @@ struct ProfilePageView: View {
     @State private var birthDate = Date()
     @State private var isShowDatePicker = false
     @State private var birthDateStr : String = ""
+    
+    var userEmail: String {
+        UserDefaults.standard.string(forKey: "userEmail") ?? ""
+    }
+    
+    // fetch sm nampilin data usernya
+    func fetchUserData() {
+        searchUserByEmail(email: userEmail) { result in
+            switch result {
+            case .success(let user):
+                if let user = user {
+                    self.userData = user
+                    print("User data updated: \(user.name)")
+                    self.TFName = user.name
+                    self.TFEmail = user.email
+                    self.TFGrade = user.grade ?? ""
+                    self.birthDateStr = user.DOB
+                } else {
+                    print("No user found with the email \(userEmail)")
+                }
+            case .failure(let error):
+                print("Error occurred: \(error.localizedDescription)")
+            }
+        }
+    }
     
     var body: some View {
         
@@ -60,12 +87,26 @@ struct ProfilePageView: View {
                 
                 
                 Button {
-                    if (isUpdateProfile) {
-                        // Update operation
-                        
-                    }
-                    
-                    isUpdateProfile.toggle()
+                    if isUpdateProfile {
+                            let updatedUser = User(
+                                name: TFName,
+                                grade: TFGrade ?? "",
+                                email: userData?.email ?? "",
+                                password: userData?.password ?? "",
+                                DOB: birthDateStr
+                            )
+                            
+                        // update data usernya
+                            updateUserProfile(user: updatedUser) { result in
+                                switch result {
+                                case .success:
+                                    print("User profile updated successfully")
+                                case .failure(let error):
+                                    print("Error updating profile: \(error.localizedDescription)")
+                                }
+                            }
+                        }
+                        isUpdateProfile.toggle()
                 } label: {
                     Text(isUpdateProfile ? "Done" : "Edit Profile")
                         .font(.system(size: 18))
@@ -141,17 +182,17 @@ struct ProfilePageView: View {
                     .padding(.horizontal,30)
                     .zIndex(2)
             }
-            
-            
-            
-                
+        }
+        .onAppear {
+            fetchUserData()
         }
         
     }
     
     func logOut() {
         
-        // pop navigation ke login screen
+        // pop navigation ke login screen and erase the user default
+        UserDefaults.standard.removeObject(forKey: "userEmail")
         navigationPath.removeLast(navigationPath.count)
     }
     
