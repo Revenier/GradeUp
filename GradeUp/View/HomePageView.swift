@@ -22,12 +22,14 @@ struct HomePageView: View {
                 
                 userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
                 
-                subjectGridView()
+                
                 
                 Text("Categories")
                     .font(.system(size: 16))
                     .padding(.top,35)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                subjectGridView()
                 
                 Spacer()
             }
@@ -43,7 +45,7 @@ struct HomePageView: View {
 
 struct homeHeader : View {
     @Binding var navigationPath : NavigationPath
-    @State var avatar : UIImage? = UIImage()
+    @State var avatar : UIImage?
     
     var body : some View {
         HStack {
