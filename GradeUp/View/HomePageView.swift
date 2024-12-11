@@ -22,6 +22,8 @@ struct HomePageView: View {
                 
                 userLastJourney(isUserOnGoingJourney: $isUserOnGoingJourney)
                 
+                subjectGridView()
+                
                 Text("Categories")
                     .font(.system(size: 16))
                     .padding(.top,35)
@@ -167,5 +169,28 @@ struct userLastJourney : View {
     }
 }
 
+struct subjectGridView : View{
+    //3 items per column
+    let columns: [GridItem] = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
+    
+    let items = Array(1...subjectsTemp.count)
+    let colorCount = subjectColor.count
+    var body: some View{
+        ScrollView{
+            LazyVGrid(columns: columns, spacing: 20){
+                ForEach(items, id: \.self){ subject in
+                    VStack{
+                        SubjectPrimary(backgroundColor: subjectColor[subject-1 % colorCount], subjectTitle: subjectsTemp[subject-1].name, subjectLogo: Image(subjectsTemp[subject-1].name))
+                    }
+                }
+            }
+        }
+        .padding(.top, 20)
+    }
+}
 
 

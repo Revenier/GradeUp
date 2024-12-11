@@ -13,3 +13,5 @@ var chaptersTemp : [Chapter] = [Chapter(name: "Basic English", questions: questi
 var subjectsTemp : [Subject] = [Subject(name: "Physics", chapters: chaptersTemp),Subject(name: "Mathematics", chapters: chaptersTemp),Subject(name: "Biology", chapters: chaptersTemp),Subject(name: "English", chapters: chaptersTemp)]
 var gradesTemp : [Grade] = [Grade(name: "Primary 1", subjects: subjectsTemp),Grade(name: "Primary 2", subjects: subjectsTemp),Grade(name: "Primary 3", subjects: subjectsTemp),Grade(name: "Primary 4", subjects: subjectsTemp),Grade(name: "Primary 5", subjects: subjectsTemp),Grade(name: "Primary 6", subjects: subjectsTemp)]
 var chapterColor: [Color] = [.babyRed, .babyPink,.babyOrange ,.babyBlue,.babyGreen]
+var subjectColor: [Color] = [.orangePastel, .bluePastel, .greenPastel, .yellowPastel, .greyPastel, .pinkPastel, .brownPastel, .olivePastel, .purplePastel]
+
