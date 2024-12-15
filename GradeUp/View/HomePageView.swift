@@ -15,6 +15,7 @@ struct HomePageView: View {
     @State private var userData: User?
     @State private var remainingTime: String = "0d 0h 0m 0s"
     @State private var timer: Timer?
+    @State private var avatar: UIImage?
     
     var uesrGrade: String {
         UserDefaults.standard.string(forKey: "Grade")!
@@ -24,6 +25,7 @@ struct HomePageView: View {
     }
     
     func fetchUserData() {
+        userData?.url = ""
         searchUserByEmail(email: userEmail) { result in
             switch result {
             case .success(let user):
@@ -32,6 +34,16 @@ struct HomePageView: View {
                         startCountdown(expiredDate: user.expiredDate)
                     }
                     self.userData = user
+                    
+                    
+                    loadImage(from: userData!.url){image in
+                        
+                        if let urlimage = image{
+                            avatar = urlimage
+                        }
+                        
+                    }
+                        
 
                     print("User data updated: \(user.name)")
                 } else {
@@ -92,6 +104,10 @@ struct HomePageView: View {
         }
     }
     
+     
+    
+        
+    
     
     
     
@@ -100,7 +116,7 @@ struct HomePageView: View {
             Color(UIColor(named: "BackgroundColor")!).ignoresSafeArea()
             VStack(spacing : 0 ) {
                 
-                homeHeader(navigationPath: $navigationPath, userData: $userData)
+                homeHeader(navigationPath: $navigationPath, userData: $userData, avatar: $avatar)
                 
                 userLastJourney(navigationPath: $navigationPath, userData: $userData, remainingTime: $remainingTime)
                 
@@ -127,6 +143,7 @@ struct HomePageView: View {
             .onAppear {
                 fetchAllData(for: uesrGrade)
                 fetchUserData()
+                    
                 
             }
             .onDisappear {
@@ -144,7 +161,8 @@ struct homeHeader : View {
     
     @Binding var navigationPath : NavigationPath
     @Binding var userData: User?
-    @State var avatar : UIImage?
+    @Binding var avatar : UIImage?
+    
     
     var body : some View {
         HStack {
@@ -164,6 +182,7 @@ struct homeHeader : View {
                 navigationPath.append("Profile")
                 
             }) {
+                
                 if let img = avatar {
                     Image(uiImage: img)
                         .resizable()
@@ -184,8 +203,8 @@ struct homeHeader : View {
                 }
                 
             }.frame(maxWidth: .infinity, alignment: .trailing)
+            
         }
-        
     }
     
 }

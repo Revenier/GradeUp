@@ -34,10 +34,6 @@ struct SubjectPrimary : View {
                     }else{
                         navigationPath.append("Subject \(subjectIndex)")
                     }
-                   
-                    
-
-                    
                     
                 }).scaledToFit().frame(width: 96).padding(5)
                 

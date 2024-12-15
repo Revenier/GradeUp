@@ -302,19 +302,32 @@ func getCurrentDate() -> String {
     return dateFormatter.string(from: currentDate)
 }
 
+func uploadUrl(email: String, url: String, completion: @escaping (Error?) -> Void) {
+    let db = Firestore.firestore()
+    
+    // Fetch the user document based on email
+    db.collection("users")
+        .whereField("email", isEqualTo: email)
+        .getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let document = querySnapshot?.documents.first else {
+                // Handle case where no document is found
+                completion(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "No user found with this email"]))
+                return
+            }
+            
+            let userRef = document.reference
+            
+            userRef.setData([
+                "url": url
+            ], merge: true) { error in
+                completion(error)
+            }
+        }
+}
 
 
-
-//func getSubscription(email: String, completion: @escaping (Result<User?, Error>) -> Void){
-//    let db = Firestore.firestore()
-//    
-//    db.collection("users").whereField("email", isEqualTo: email).getDocuments(){
-//        (querysnapshot,  error) in
-//        if let error = error {
-//            completion(.failure(error))
-//            return
-//        }
-//                
-//        
-//    }
-//}

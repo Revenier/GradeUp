@@ -44,6 +44,9 @@
 		766FB6842D0D651100E9C444 /* ScorePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766FB6832D0D651100E9C444 /* ScorePageView.swift */; };
 		766FB6862D0D72CE00E9C444 /* SubscriptionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766FB6852D0D72CE00E9C444 /* SubscriptionPageView.swift */; };
 		766FB6882D0D78B500E9C444 /* SecureFieldPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766FB6872D0D78B500E9C444 /* SecureFieldPrimary.swift */; };
+		766FB68A2D0F08F800E9C444 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 766FB6892D0F08F800E9C444 /* Storage */; };
+		766FB68C2D0F08F800E9C444 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 766FB68B2D0F08F800E9C444 /* Supabase */; };
+		766FB68E2D0F0C9700E9C444 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 766FB68D2D0F0C9700E9C444 /* Storage */; };
 		76767ABE2D0BE24400BD31F2 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 76767ABD2D0BE24400BD31F2 /* Storage */; };
 		76767AC02D0BE24400BD31F2 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 76767ABF2D0BE24400BD31F2 /* Supabase */; };
 		76767AC22D0BE27900BD31F2 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 76767AC12D0BE27900BD31F2 /* Storage */; };
@@ -113,13 +116,16 @@
 				76767AC02D0BE24400BD31F2 /* Supabase in Frameworks */,
 				76767ABE2D0BE24400BD31F2 /* Storage in Frameworks */,
 				7615728C2D0BEFA4005FF053 /* Realtime in Frameworks */,
+				766FB68A2D0F08F800E9C444 /* Storage in Frameworks */,
 				76A0E9F42D0BF1D300BA965B /* Storage in Frameworks */,
+				766FB68E2D0F0C9700E9C444 /* Storage in Frameworks */,
 				76A0E9F22D0BF1D300BA965B /* Realtime in Frameworks */,
 				76A0E9ED2D0BF16E00BA965B /* Supabase in Frameworks */,
 				76385DB62D0BE2DB006C5D35 /* Storage in Frameworks */,
 				76767AC42D0BE27900BD31F2 /* Supabase in Frameworks */,
 				76385DB82D0BE2DB006C5D35 /* Supabase in Frameworks */,
 				76A0E9F62D0BF1D300BA965B /* Supabase in Frameworks */,
+				766FB68C2D0F08F800E9C444 /* Supabase in Frameworks */,
 				7615728E2D0BEFA4005FF053 /* Storage in Frameworks */,
 				76E4846B2D09760000AD273C /* FirebaseAuth in Frameworks */,
 				76767AC22D0BE27900BD31F2 /* Storage in Frameworks */,
@@ -622,6 +628,19 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 76385DB42D0BE2DB006C5D35 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		766FB6892D0F08F800E9C444 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Storage;
+		};
+		766FB68B2D0F08F800E9C444 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Supabase;
+		};
+		766FB68D2D0F0C9700E9C444 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76A0E9EE2D0BF1D300BA965B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
 		};
 		76767ABD2D0BE24400BD31F2 /* Storage */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -43,6 +43,15 @@ struct ProfilePageView: View {
                     self.TFEmail = user.email
                     self.TFGrade = user.grade ?? ""
                     self.birthDateStr = user.DOB
+                      
+                    loadImage(from: userData!.url){image in
+                        
+                        if let urlimage = image{
+                            avatar = urlimage
+                        }
+                        
+                    }
+                        
                 } else {
                     print("No user found with the email \(userEmail)")
                 }
@@ -89,29 +98,59 @@ struct ProfilePageView: View {
                 
                 Button {
                     if isUpdateProfile {
-                            let updatedUser = User(
-                                name: TFName,
-                                grade: TFGrade ?? "",
-                                email: userData?.email ?? "",
-                                password: userData?.password ?? "",
-                                DOB: birthDateStr,
-                                subscription: userData?.subscription ?? "",
-                                expiredDate: userData?.expiredDate ?? getCurrentDate()
-                                
-                            )
+                        let updatedUser = User(
+                            name: TFName,
+                            grade: TFGrade ?? "",
+                            email: userData?.email ?? "",
+                            password: userData?.password ?? "",
+                            DOB: birthDateStr,
+                            subscription: userData?.subscription ?? "",
+                            expiredDate: userData?.expiredDate ?? getCurrentDate(),
+                            url: ""
                             
+                        )
+                        
                         // update data usernya
-                            updateUserProfile(user: updatedUser) { result in
-                                switch result {
-                                case .success:
-                                    UserDefaults.standard.set(TFGrade, forKey: "Grade")
-                                    print("User profile updated successfully")
-                                case .failure(let error):
-                                    print("Error updating profile: \(error.localizedDescription)")
-                                }
+                        updateUserProfile(user: updatedUser) { result in
+                            switch result {
+                            case .success:
+                                UserDefaults.standard.set(TFGrade, forKey: "Grade")
+                                print("User profile updated successfully")
+                            case .failure(let error):
+                                print("Error updating profile: \(error.localizedDescription)")
                             }
                         }
-                        isUpdateProfile.toggle()
+                        
+                        guard let imageUi = avatar else {
+                            isUpdateProfile = false
+                            return
+                        }
+                        Task{
+                            await uploadimage(img: imageUi, email: userEmail)
+
+                            let publicUrl = try await supabase.storage.from("Images").getPublicURL(path: "\(userEmail).jpeg")
+                            print(publicUrl)
+                            
+                            await uploadUrl(email: userEmail, url: publicUrl.absoluteString){error in
+                                
+                                if let error = error {
+                                    print("Failed to uplaod url: \(error.localizedDescription)")
+                                } else {
+                                
+                                    print("success")
+                                    
+                                }
+                                
+                            }
+
+                        }
+                        isUpdateProfile = false
+                        
+                    }else{
+                        isUpdateProfile = true
+                    }
+                        
+                    
                 } label: {
                     Text(isUpdateProfile ? "Done" : "Edit Profile")
                         .font(.system(size: 18))

@@ -14,7 +14,7 @@ func registerUserInAuth(email: String, password: String, completion: @escaping (
         if let error = error {
             completion(.failure(error))
         } else if let authResult = authResult {
-            let user = User(name: "", grade: "", email: email, password: password, DOB: "",subscription: "",expiredDate: getCurrentDate())
+            let user = User(name: "", grade: "", email: email, password: password, DOB: "",subscription: "",expiredDate: getCurrentDate(), url: "")
             completion(.success(user))
         }
     }
@@ -38,7 +38,8 @@ func storeUserToFirebase(user: User, completion: @escaping (Result<Void, Error>)
         "DOB": "",
         "ProfilePic":"",
         "subscription": user.subscription,
-        "expiredDate": user.expiredDate
+        "expiredDate": user.expiredDate,
+        "url": user.url
     ]
     
     // Save user data to Firestore using the user's UID as document ID
@@ -69,9 +70,10 @@ func findUserFromFirebase(email: String, completion: @escaping (Result<User, Err
                        let password = data["password"] as? String,
                        let dob = data["DOB"] as? String,
                        let subscription = data["subscription"] as? String,
-                       let expiredDate = data["expiredDate"] as? String
+                       let expiredDate = data["expiredDate"] as? String,
+                       let url = data["url"] as? String
                     {
-                        let user = User(name: name, grade: grade, email: email, password: password, DOB: dob,subscription: subscription,expiredDate: expiredDate)
+                        let user = User(name: name, grade: grade, email: email, password: password, DOB: dob,subscription: subscription,expiredDate: expiredDate, url: url)
                         completion(.success(user))
                     } else {
                         completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing user data"])))
@@ -122,7 +124,8 @@ func searchUserByEmail(email: String, completion: @escaping (Result<User?, Error
                   let password = data["password"] as? String,
                   let dob = data["DOB"] as? String,
                   let subscription = data["subscription"] as? String,
-                  let expiredDate = data["expiredDate"] as? String
+                  let expiredDate = data["expiredDate"] as? String,
+                  let url = data["url"] as? String
             else {
                       completion(.failure(NSError(
                         domain: "",
@@ -132,7 +135,7 @@ func searchUserByEmail(email: String, completion: @escaping (Result<User?, Error
                       return
                   }
 
-            let user = User(name: name, grade: grade, email: email, password: password, DOB: dob,subscription: subscription,expiredDate: expiredDate)
+            let user = User(name: name, grade: grade, email: email, password: password, DOB: dob,subscription: subscription,expiredDate: expiredDate, url: url)
             completion(.success(user))
         }
 }

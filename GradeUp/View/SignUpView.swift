@@ -89,7 +89,7 @@ struct SignUpView: View {
                         return
                     }
                     
-                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword, DOB: "",subscription: "",expiredDate: getCurrentDate())
+                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword, DOB: "",subscription: "",expiredDate: getCurrentDate(), url: "")
                     
                     storeUserToFirebase(user: user) { result in
                         switch result {
@@ -98,7 +98,10 @@ struct SignUpView: View {
                             errorMessage = "Register Complete!"
                             isToastVisible = true
                             showToastForDuration()
-                            isUserRegisComplete.toggle()
+                            withAnimation{
+                                isUserRegisComplete.toggle()
+                            }
+                           
                             
                             // kalau gagal
                         case .failure(let error):

@@ -27,8 +27,11 @@ struct SubscriptionPageView: View {
                             print("Failed to add subscription: \(error.localizedDescription)")
                         } else {
                             print("Subscription added successfully!")
+                            navigationPath.removeLast(1)
                         }
                     }
+                    
+                    
                         
                     
                 })
@@ -39,8 +42,10 @@ struct SubscriptionPageView: View {
                             print("Failed to add subscription: \(error.localizedDescription)")
                         } else {
                             print("Subscription added successfully!")
+                            navigationPath.removeLast(1)
                         }
                     }
+                    
 
                 })
                 
@@ -50,6 +55,7 @@ struct SubscriptionPageView: View {
                             print("Failed to add subscription: \(error.localizedDescription)")
                         } else {
                             print("Subscription added successfully!")
+                            navigationPath.removeLast(1)
                         }
                     }
 

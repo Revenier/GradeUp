@@ -15,4 +15,5 @@ struct User{
     var DOB: String
     var subscription: String
     var expiredDate: String
+    var url: String
 }
