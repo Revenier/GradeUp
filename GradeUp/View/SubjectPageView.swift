@@ -11,6 +11,18 @@ import SwiftUI
 struct SubjectPageView: View {
     @Binding var navigationPath: NavigationPath
     var subjectIndex: Int
+    
+    var userGrade: String {
+        UserDefaults.standard.string(forKey: "Grade") ?? ""
+    }
+    
+    func fetchData(){
+        fetchChaptersData(for: userGrade, subjectName: subjectsTemp[subjectIndex].name){ chapters in
+            setChapter(chaptersData: chapters)
+                
+        }
+    }
+    
     var body: some View {
         NavigationView{
             ZStack(alignment:.top) {
@@ -23,16 +35,19 @@ struct SubjectPageView: View {
                     ScrollView{
                         VStack(spacing: 20){
                             ForEach(0..<subjectsTemp[subjectIndex].chapters.count){index in
-                                LessonLayoutPrimary(navigationPath: $navigationPath, backgroundColor: chapterColor[index%5], lessonTitle: subjectsTemp[subjectIndex].chapters[index].name, questionCount: subjectsTemp[subjectIndex].chapters[index].questions.count, subjectLogo: Image(subjectsTemp[subjectIndex].name), chapterIndex: index, subjectIndex: subjectIndex, isCompleted: .constant(true))
+                                LessonLayoutPrimary(navigationPath: $navigationPath, backgroundColor: chapterColor[index%5], lessonTitle: subjectsTemp[subjectIndex].chapters[index].name, questionCount: subjectsTemp[subjectIndex].chapters[index].questions.count, subjectLogo: Image(subjectsTemp[subjectIndex].name), chapterIndex: index, subjectIndex: subjectIndex)
                             }
                         }
                     }.padding(.bottom, 50)
-                    
-                    
+                                        
                 }
                 
                 .frame(width: .infinity)
                 .padding(.horizontal,37)
+                .onAppear(){
+                    
+                    fetchData()
+                }
             }
             
         }

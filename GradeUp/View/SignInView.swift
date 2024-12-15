@@ -15,12 +15,15 @@ struct SignInView: View {
     @State private var isToastVisible: Bool = false
     
     @Binding var navigationPath : NavigationPath
+    
+    
+    
     var body: some View {
         TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email", isEditable: .constant(true))
             .padding(.bottom,29)
             .padding(.top,37)
         
-        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password", isEditable: .constant(true))
+        SecureFieldPrimary(textInput: $inputPassword, placeholderText: "Password")
         
         ButtonPrimary(title: "LOGIN", onClick: {
             print(inputEmail)
@@ -58,10 +61,29 @@ struct SignInView: View {
             return
         }
         
+        func fetchUserData(userEmail: String) {
+            searchUserByEmail(email: userEmail) { result in
+                switch result {
+                case .success(let user):
+                    if let user = user {
+                        UserDefaults.standard.set(user.grade, forKey: "Grade")
+                        print("userGrade : \(user.grade)")
+                        print("User data updated: \(user.name)")
+                    } else {
+                        print("No user found with the email \(userEmail)")
+                    }
+                case .failure(let error):
+                    print("From Login : Error occurred: \(error.localizedDescription)")
+                }
+            }
+        }
+        
         signInUser(email: inputEmail, password: inputPassword) { result in
                     DispatchQueue.main.async {
                         switch result {
                         case .success:
+                            
+                            fetchUserData(userEmail: inputEmail)
                             UserDefaults.standard.set(inputEmail, forKey: "userEmail")
                             navigationPath.append("Home")
                             inputEmail=""

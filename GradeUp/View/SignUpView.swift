@@ -26,7 +26,7 @@ struct SignUpView: View {
             .padding(.top,28)
         TextFieldPrimary(textInput: $inputEmail, placeholderText: "Email", isEditable: .constant(true))
             .padding(.top,28)
-        TextFieldPrimary(textInput: $inputPassword, placeholderText: "Password", isEditable: .constant(true))
+        SecureFieldPrimary(textInput: $inputPassword, placeholderText: "Password")
             .padding(.top,28)
         ButtonPrimary(title: "REGISTER", onClick: {
 //            manggil validasi buat cek inputnya. 
@@ -89,7 +89,7 @@ struct SignUpView: View {
                         return
                     }
                     
-                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword, DOB: "")
+                    let user = User(name: inputName, grade: inputGrade ?? "Unknown", email: inputEmail, password: inputPassword, DOB: "",subscription: "",expiredDate: getCurrentDate())
                     
                     storeUserToFirebase(user: user) { result in
                         switch result {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import FirebaseAuth
 
 struct ProfilePageView: View {
     
@@ -93,13 +94,17 @@ struct ProfilePageView: View {
                                 grade: TFGrade ?? "",
                                 email: userData?.email ?? "",
                                 password: userData?.password ?? "",
-                                DOB: birthDateStr
+                                DOB: birthDateStr,
+                                subscription: userData?.subscription ?? "",
+                                expiredDate: userData?.expiredDate ?? getCurrentDate()
+                                
                             )
                             
                         // update data usernya
                             updateUserProfile(user: updatedUser) { result in
                                 switch result {
                                 case .success:
+                                    UserDefaults.standard.set(TFGrade, forKey: "Grade")
                                     print("User profile updated successfully")
                                 case .failure(let error):
                                     print("Error updating profile: \(error.localizedDescription)")
@@ -190,10 +195,16 @@ struct ProfilePageView: View {
     }
     
     func logOut() {
+        do{
+            try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "userEmail")
+            navigationPath.removeLast(navigationPath.count)
+        }catch let error {
+            print("Error during sign out: \(error.localizedDescription)")
+        }
         
-        // pop navigation ke login screen and erase the user default
-        UserDefaults.standard.removeObject(forKey: "userEmail")
-        navigationPath.removeLast(navigationPath.count)
+       
+        
     }
     
     

@@ -13,4 +13,6 @@ struct User{
     var email: String
     var password: String
     var DOB: String
+    var subscription: String
+    var expiredDate: String
 }

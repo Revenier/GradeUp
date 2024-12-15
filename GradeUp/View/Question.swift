@@ -11,5 +11,5 @@ struct Question{
     var number: Int
     var question: String
     var options: [String]
-    var answer: String
+    var answer: Int
 }

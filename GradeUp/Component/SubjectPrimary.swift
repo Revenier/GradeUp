@@ -12,6 +12,7 @@ struct SubjectPrimary : View {
     var subjectTitle : String
     var subjectLogo : Image!
     var subjectIndex: String
+    @Binding var remainingTime: String
     @Binding var navigationPath : NavigationPath
     var body : some View {
         ZStack{
@@ -24,7 +25,22 @@ struct SubjectPrimary : View {
             VStack{
                 subjectLogo.resizable().scaledToFit().frame(width: 46,height: 46).padding(7)
                 Text(subjectTitle).font(.system(size: 10,weight: .bold)).padding(.bottom,1)
-                StartButtonPrimary(onClick: {navigationPath.append("Subject \(subjectIndex)")}).scaledToFit().frame(width: 96).padding(5)
+                
+                StartButtonPrimary(onClick: {
+                    
+                    if(remainingTime == "0d 0h 0m 0s"){
+                        //                    button to subscription page
+                        navigationPath.append("Subscription")
+                    }else{
+                        navigationPath.append("Subject \(subjectIndex)")
+                    }
+                   
+                    
+
+                    
+                    
+                }).scaledToFit().frame(width: 96).padding(5)
+                
             }
 
         }
@@ -32,5 +48,5 @@ struct SubjectPrimary : View {
 }
 
 #Preview {
-    SubjectPrimary(backgroundColor: Color.bluePastel, subjectTitle: "Physics", subjectLogo: Image("Physics"), subjectIndex: "0",navigationPath: .constant(NavigationPath()))
+    SubjectPrimary(backgroundColor: Color.bluePastel, subjectTitle: "Physics", subjectLogo: Image("Physics"), subjectIndex: "0", remainingTime: .constant(""),navigationPath: .constant(NavigationPath()))
 }

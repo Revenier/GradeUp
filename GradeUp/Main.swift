@@ -63,8 +63,20 @@ struct Main: View {
                             let valueArr = value.split(separator : " ")
                             let subjectIndex = Int(valueArr[1])
                             let chapterIndex = Int(valueArr.last!)
+                            
                             QuestionPageView(navigationPath:
-                                                $navigationPath, chapterSelected: .constant(subjectsTemp[subjectIndex!].chapters[chapterIndex!])).navigationBarBackButtonHidden(true)
+                                                $navigationPath,chapterSelected: .constant(subjectsTemp[subjectIndex!].chapters[chapterIndex!]), subjectIndex:subjectIndex!).navigationBarBackButtonHidden(true)
+                        }
+                        else if (value.hasPrefix("Score")){
+                            let valueArr = value.split(separator: " ")
+                            let score = Int(valueArr[1])
+                            
+                            ScorePageView(score: score!, navigationPath: $navigationPath)
+                                .navigationBarBackButtonHidden(true)
+                        }
+                        else if (value.hasPrefix("Subscription")){
+                            SubscriptionPageView(navigationPath: $navigationPath)
+                                .navigationBarBackButtonHidden(true)
                         }
                     }
                 
