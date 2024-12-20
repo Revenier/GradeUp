@@ -17,17 +17,31 @@ let supabase = SupabaseClient(
     
 )
 
-func uploadimage(img: UIImage, email: String) async{
+func uploadimage(img: UIImage, email: String, isUpdate : Bool) async{
     guard let imgData = img.jpegData(compressionQuality: 0.8)else {
         return
     }
     
-    do{
-        try await supabase.storage.from("Images").upload(path: "\(email).jpeg", file: imgData, options: FileOptions(cacheControl: "3600", contentType: "image/jpeg", upsert: true)
-        )
-    }catch{
-        print("\(error)")
+    if (isUpdate){
+//        nth time upload image (update)
+        do{
+            try await supabase.storage.from("Images").update(path: "\(email).jpeg", file: imgData, options: FileOptions(cacheControl: "3600", contentType: "image/jpeg", upsert: true)
+            )
+        }catch{
+            print("\(error)")
+        }
     }
+    else {
+//        first time upload image
+        do{
+            try await supabase.storage.from("Images").upload(path: "\(email).jpeg", file: imgData, options: FileOptions(cacheControl: "3600", contentType: "image/jpeg", upsert: false)
+            )
+        }catch{
+            print("\(error)")
+        }
+    }
+    
+    
 }
 
 

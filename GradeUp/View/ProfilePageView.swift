@@ -126,7 +126,7 @@ struct ProfilePageView: View {
                             return
                         }
                         Task{
-                            await uploadimage(img: imageUi, email: userEmail)
+                            await uploadimage(img: imageUi, email: userEmail, isUpdate: (userData?.url != ""))
 
                             let publicUrl = try await supabase.storage.from("Images").getPublicURL(path: "\(userEmail).jpeg")
                             print(publicUrl)
